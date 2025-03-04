@@ -1,0 +1,18 @@
+{
+	"eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit",
+		"source.fixAll.prettier": "explicit"
+	},
+	"editor.tabSize": 4,
+	"editor.insertSpaces": false,
+	"prettier.useTabs": true,
+	"prettier.tabWidth": 4,
+	"prettier.semi": true,
+	"prettier.singleQuote": true,
+	"prettier.quoteProps": "consistent",
+	"prettier.trailingComma": "es5",
+	"prettier.bracketSpacing": false,
+	"prettier.arrowParens": "avoid",
+	"prettier.printWidth": 150
+}

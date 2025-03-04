@@ -1,0 +1,13 @@
+{
+	"navigationButtons": ["Get Started", "Why WebdriverIO?", "View on GitHub", "Watch on YouTube"],
+	"url": "https://www.playground.testingmavens.tools",
+	"loginCredential": {
+		"username": "playground",
+		"password": "playground@TM"
+	},
+	"contactDetails": {
+		"Name": "Test_001",
+		"Email": "test_001@demo.com",
+		"Message": "I recently purchased your product through a local retailer and I was very upset to find that it did not work as expect."
+	}
+}

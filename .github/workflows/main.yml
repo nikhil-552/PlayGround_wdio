@@ -1,0 +1,48 @@
+name: ui_test_runner
+run-name: UI functional tests ran by @${{ github.actor }} - run number ${{ github.run_number }}
+on:
+    workflow_dispatch:
+jobs:
+    test:
+        # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+        permissions:
+            contents: read
+            pages: write
+            id-token: write
+        # Deploy to the github-pages environment
+        #environment:
+        #name: github-pages
+        #url: ${{ steps.deployment.outputs.page_url }}
+        runs-on: ubuntu-latest
+        name: UI tests - ran by @${{ github.actor }}
+        steps:
+            - uses: actions/checkout@v3
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+                  cache: npm
+            - name: Checkout code
+              uses: actions/checkout@v3
+            - name: Install packages
+              run: npm install
+            - name: Execute tests
+              run: npm run test
+            - name: Install Allure CommandLine
+              if: always()
+              run: npm i -g allure-commandline
+            - name: Combine Allure
+              if: always()
+              run: npm run allureCombine
+            - name: Upload Test Report
+              if: always()
+              uses: actions/upload-artifact@v3
+              with:
+                  name: Allure report
+                  path: test/.artifacts/allure-report/complete.html
+            #- name: Deploy to Github Pages
+            # if: always()
+            # id: deployment
+            #uses: actions/deploy-pages@v2
+            #with:
+            #artifact_name: allure-report-${{ github.run_number }}
